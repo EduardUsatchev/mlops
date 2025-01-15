@@ -37,10 +37,13 @@ jobs:
         version: 'v1.26.0'
 
     - name: Configure kubeconfig
+      env:
+        KUBE_CONFIG_PATH: $HOME/.kube/config
       run: |
-        mkdir -p ~/.kube
+        mkdir -p $(dirname $KUBE_CONFIG_PATH)
         echo "${{ secrets.KUBECONFIG_CONTENT }}" > $KUBE_CONFIG_PATH
         chmod 600 $KUBE_CONFIG_PATH
+
 
     - name: Deploy to K3s cluster
       run: |

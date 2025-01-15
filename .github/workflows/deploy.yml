@@ -38,6 +38,7 @@ jobs:
 
     - name: Configure kubeconfig
       run: |
+        mkdir -p ~/.kube
         echo "${{ secrets.KUBECONFIG_CONTENT }}" > $KUBE_CONFIG_PATH
         chmod 600 $KUBE_CONFIG_PATH
 

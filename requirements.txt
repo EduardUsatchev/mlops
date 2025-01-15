@@ -1,0 +1,10 @@
+pandas
+scikit-learn
+mlflow
+dvc
+flask
+gunicorn
+np
+lightgbm
+flask-swagger-ui
+flask-cors

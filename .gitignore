@@ -1,0 +1,11 @@
+# Ignore data files
+data/*.csv
+models/*
+!models/README.md
+
+# Ignore DVC files
+*.dvc
+
+# Ignore Python cache
+__pycache__/
+*.pyc

@@ -1,0 +1,59 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "House Price Prediction API",
+    "description": "API for predicting house prices using a machine learning model."
+  },
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/predict": {
+      "post": {
+        "summary": "Make a prediction",
+        "description": "Returns the predicted house price given input features.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "features": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "example": [8.3252, 41.0, 6.9841, 1.0238, 322.0, 2.5556, 37.88, -122.23]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Prediction successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "prediction": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          }
+        }
+      }
+    }
+  }
+}
